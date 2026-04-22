@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <title>DIÁRIO PET</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <div>
+        <h1>DIÁRIO PET</h1>
+      </div>
+    </header>
+
+    <main class="grid-layout">
+      <section class="panel">
+        <div class="card">
+          <h2 id="entry-form-title">Novo registro do diário</h2>
+
+          <form id="entry-form" class="form-grid">
+            <input type="hidden" id="entry-id" />
+
+            <label for="title">Título</label>
+            <input type="text" id="title" required />
+
+            <label for="description">Descrição</label>
+            <textarea id="description" rows="4" required></textarea>
+
+            <label for="happenedAt">Data e hora</label>
+            <input type="datetime-local" id="happenedAt" required />
+
+            <div class="button-row">
+              <button type="submit">Salvar registro</button>
+              <button
+                type="button"
+                id="cancel-entry-edit"
+                class="secondary-button hidden"
+              >
+                Cancelar edição
+              </button>
+            </div>
+          </form>
+
+          <p id="entry-message" class="feedback"></p>
+        </div>
+
+        <div class="card">
+          <div class="section-header">
+            <h2>Registros do diário</h2>
+            <button
+              type="button"
+              id="reload-entries"
+              class="secondary-button small-button"
+            >
+              Atualizar
+            </button>
+          </div>
+
+          <div id="entries-list" class="list-wrapper"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="card">
+          <h2 id="appointment-form-title">Novo agendamento</h2>
+
+          <form id="appointment-form" class="form-grid">
+            <input type="hidden" id="appointment-id" />
+
+            <label for="petName">Nome do pet</label>
+            <input type="text" id="petName" required />
+
+            <label for="serviceType">Tipo de serviço</label>
+            <input
+              type="text"
+              id="serviceType"
+              placeholder="Consulta, banho, vacina..."
+              required
+            />
+
+            <label for="appointmentDate">Data e hora</label>
+            <input type="datetime-local" id="appointmentDate" required />
+
+            <label for="status">Status</label>
+            <select id="status" required>
+              <option value="agendado">Agendado</option>
+              <option value="concluido">Concluído</option>
+              <option value="cancelado">Cancelado</option>
+            </select>
+
+            <label for="notes">Observações</label>
+            <textarea
+              id="notes"
+              rows="4"
+              placeholder="Informações extras"
+            ></textarea>
+
+            <div class="button-row">
+              <button type="submit">Salvar agendamento</button>
+              <button
+                type="button"
+                id="cancel-appointment-edit"
+                class="secondary-button hidden"
+              >
+                Cancelar edição
+              </button>
+            </div>
+          </form>
+
+          <p id="appointment-message" class="feedback"></p>
+        </div>
+
+        <div class="card">
+          <div class="section-header">
+            <h2>Agendamentos</h2>
+            <button
+              type="button"
+              id="reload-appointments"
+              class="secondary-button small-button"
+            >
+              Atualizar
+            </button>
+          </div>
+
+          <div id="appointments-list" class="list-wrapper"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
