@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = 'https://atividade-full-stack1.onrender.com/api';
 
 const entryForm = document.getElementById('entry-form');
 const entryId = document.getElementById('entry-id');
