@@ -31,13 +31,14 @@ app.use('/api/appointments', require('./routes/appointmentRoutes'));
 
 async function startServer() {
   try {
-    await mongoose.connect(
-      process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/pet_diary'
-    );
-
+    const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/pet_diary';
     const port = process.env.PORT || 3000;
 
-    app.listen(port, () => {
+    await mongoose.connect(mongoUri);
+
+    console.log('MongoDB conectado');
+
+    app.listen(port, '0.0.0.0', () => {
       console.log(`Servidor rodando na porta ${port}`);
     });
   } catch (error) {
